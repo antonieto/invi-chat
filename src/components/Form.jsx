@@ -16,7 +16,11 @@ const Form = ({form, setForm, user}) => {
 
     const submitForm = async (e) => { 
         e.preventDefault(); 
-        
+        setForm({ 
+            author: "", 
+            msg: ""
+        })
+        return;
         if(form.author.trim() == "" || form.author.trim() == ""){ 
             return;
         }
@@ -47,7 +51,7 @@ const Form = ({form, setForm, user}) => {
                     </div>
                     <div className="form-group mt-3 p-2"> 
                         <label htmlFor="textarea"> Deja un mensaje </label> 
-                        <textarea className="form-control shadow" id="msg" onChange={handleChange}>  </textarea>
+                        <textarea className="form-control shadow" id="msg" onChange={handleChange} defaultValue={form.msg} value={form.msg}>  </textarea>
                     </div>
                     <button type="submit" className="btn btn-success my-2 rounded  text-bold w-100 shadow-sm" style={{width: "80px"}}> 
                         Asistiré!
